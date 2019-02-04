@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <RootNamespace>Project3_Site_MVC.MVC</RootNamespace>
+    <UserSecretsId>cb34c53a-c993-4931-9051-b19872ad1032</UserSecretsId>
   </PropertyGroup>
 
 
