@@ -5,4 +5,8 @@
     <RootNamespace>Project3_Site_MVC.Library</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
+  </ItemGroup>
+
 </Project>

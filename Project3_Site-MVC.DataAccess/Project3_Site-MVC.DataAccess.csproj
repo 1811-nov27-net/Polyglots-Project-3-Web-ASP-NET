@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
+    <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.15" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Project3_Site-MVC.Library\Project3_Site-MVC.Library.csproj" />
   </ItemGroup>
 
