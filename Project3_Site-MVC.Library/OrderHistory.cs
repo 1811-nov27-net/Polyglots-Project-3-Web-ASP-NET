@@ -5,11 +5,7 @@ using System.Text;
 
 namespace Project3_Site_MVC.Library
 {
-    class OrderHistory : IOrderHistory
+    public class OrderHistory
     {
-        public List<OrderHistory> GetAll()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

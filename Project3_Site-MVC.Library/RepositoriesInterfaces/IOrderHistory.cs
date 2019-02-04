@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Project3_Site_MVC.Library.RepositoriesInterfaces
 {
-    interface IOrderHistory
+    public interface IOrderHistory
     {
         List<OrderHistory> GetAll();
     }

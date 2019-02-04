@@ -2,13 +2,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Project3_Site_MVC.DataAccess;
+using Project3_Site_MVC.DataAccess.Repositories;
+using Project3_Site_MVC.Library;
+using Project3_Site_MVC.Library.RepositoriesInterfaces;
 
 namespace Project3_Site_MVC.MVC
 {
@@ -24,6 +30,20 @@ namespace Project3_Site_MVC.MVC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Repositories
+            services.AddScoped<IOrderHistory, OrderHistoryRepository>();
+
+
+            //Mapper
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Orderhistory, OrderHistory>();
+                cfg.CreateMap<OrderHistory, Orderhistory>();
+            });
+
+
+            services.AddDbContext<admin_order_processContext>(options => options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
