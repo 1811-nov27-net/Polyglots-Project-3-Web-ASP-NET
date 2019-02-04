@@ -5,4 +5,8 @@
     <RootNamespace>Project3_Site_MVC.DataAccess</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Project3_Site-MVC.Library\Project3_Site-MVC.Library.csproj" />
+  </ItemGroup>
+
 </Project>

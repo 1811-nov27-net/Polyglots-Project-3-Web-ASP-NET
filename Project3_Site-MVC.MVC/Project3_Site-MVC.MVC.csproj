@@ -8,8 +8,14 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App"/>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\Project3_Site-MVC.DataAccess\Project3_Site-MVC.DataAccess.csproj" />
+    <ProjectReference Include="..\Project3_Site-MVC.Library\Project3_Site-MVC.Library.csproj" />
   </ItemGroup>
 
 </Project>
