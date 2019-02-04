@@ -25,8 +25,6 @@ namespace Project3_Site_MVC.DataAccess
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseMySQL("server=colmeiatech.com.br;port=3306;user=admin_polyglots;password=thirstylinguistswantdrinks;database=admin_order_process");
             }
         }
 
