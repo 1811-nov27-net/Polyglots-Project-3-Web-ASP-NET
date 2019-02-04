@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project3_Site-MVC.MVC", "Pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project3_Site-MVC.DataAccess", "Project3_Site-MVC.DataAccess\Project3_Site-MVC.DataAccess.csproj", "{FF42DFFD-F394-4EC8-838D-38AE2B435FD0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project3_Site-MVC.Library", "Project3_Site-MVC.Library\Project3_Site-MVC.Library.csproj", "{A8956259-A73F-494D-9BF9-263CC35BAEDC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FF42DFFD-F394-4EC8-838D-38AE2B435FD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF42DFFD-F394-4EC8-838D-38AE2B435FD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF42DFFD-F394-4EC8-838D-38AE2B435FD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8956259-A73F-494D-9BF9-263CC35BAEDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8956259-A73F-494D-9BF9-263CC35BAEDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8956259-A73F-494D-9BF9-263CC35BAEDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8956259-A73F-494D-9BF9-263CC35BAEDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
