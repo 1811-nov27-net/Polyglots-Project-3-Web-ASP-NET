@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +16,7 @@ using Project3_Site_MVC.DataAccess.Repositories;
 using Project3_Site_MVC.Library;
 using Project3_Site_MVC.Library.RepositoriesInterfaces;
 
-namespace Project3_Site_MVC.MVC
+namespace Project3_Site_MVC.Web
 {
     public class Startup
     {
@@ -47,7 +47,7 @@ namespace Project3_Site_MVC.MVC
                 cfg.CreateMap<OrderHistory, Orderhistory>();
             });
 
-
+            //DBContext
             services.AddDbContext<admin_order_processContext>(options => options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
 
 
@@ -63,7 +63,7 @@ namespace Project3_Site_MVC.MVC
             }
             else
             {
-                app.UseExceptionHandler("/Error");
+                app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
@@ -75,8 +75,21 @@ namespace Project3_Site_MVC.MVC
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
+                    "searchOrder",
+                    "OrderHistory/Search/{search?}",
+                    new { controller = "OrderHistory", action = "Search" }
+                );
+
+
+                routes.MapRoute(
+                    "SendEmail",
+                    "Email/Send",
+                    new { controller = "Email", action = "Send" }
+                );
+
+                routes.MapRoute(
                     name: "default",
-                    template: "{controller=HomeController}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

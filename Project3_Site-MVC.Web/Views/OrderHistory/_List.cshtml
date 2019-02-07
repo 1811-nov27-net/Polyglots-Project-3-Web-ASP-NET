@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Project3_Site_MVC.Library.OrderHistory>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <label for="order_@Html.DisplayFor(modelItem => item.Id)">
+            <td>
+                <input type='checkbox'
+                       name='orders[]'
+                       id='order_@Html.DisplayFor(modelItem => item.Id)'
+                       class='orderItem form-control'
+                       value='@Html.DisplayFor(modelItem => item.Id)'>
+            </td>
+            <td>@Html.DisplayFor(modelItem => item.Id)</td>
+            <td>@Html.DisplayFor(modelItem => item.OrderNumber)</td>
+            <td>@Html.DisplayFor(modelItem => item.StoreName)</td>
+            <td>@Html.DisplayFor(modelItem => item.OrderTotal)</td>
+            <td>@Html.DisplayFor(modelItem => item.DateOrder)</td>
+            <td>@item.Products.Replace("<br/>", ", ")</td>
+        </label>
+    </tr>
+}

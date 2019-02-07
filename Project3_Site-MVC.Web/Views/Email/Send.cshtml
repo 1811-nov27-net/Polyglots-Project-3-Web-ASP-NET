@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Project3_Site_MVC.Library.OrderHistory>
+
+@{
+    Layout = null;
+}
+
+<p>Hello, Here are the selected invoices</p>
+
+<table class="table table-hovered table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Order Number</th>
+            <th>Store Name</th>
+            <th>Order Total</th>
+            <th>Date</th>
+            <th>Products</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                <td>@Html.DisplayFor(modelItem => item.OrderNumber)</td>
+                <td>@Html.DisplayFor(modelItem => item.StoreName)</td>
+                <td>@Html.DisplayFor(modelItem => item.OrderTotal)</td>
+                <td>@Html.DisplayFor(modelItem => item.DateOrder)</td>
+                <td>@item.Products.Replace("<br/>", ", ")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    Thank you<br />
+    Revature - Project 3 - Polyglots
+</p>

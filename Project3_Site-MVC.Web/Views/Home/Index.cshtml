@@ -1,0 +1,32 @@
+﻿@model Project3_Site_MVC.Web.Models.Home
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+@section Style {
+    <link rel="stylesheet" href="/css/home.css" />
+}
+
+<div class="panel-heading">Dashboard</div>
+
+
+<div class='row'>
+    <div class="container">
+        <div class='col-md-4'>
+            <div class='small-box bg-aqua'>
+                <div class="inner">
+                    <h3>@Model.OrderCount</h3>
+
+                    <p>Orders</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="/OrderHistory" class="small-box-footer">
+                    Ver Mais <i class="fa fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
