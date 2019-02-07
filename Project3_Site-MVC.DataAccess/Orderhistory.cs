@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using MySql.Data;
+using MySql.Data.Entity;
 
 namespace Project3_Site_MVC.DataAccess
 {

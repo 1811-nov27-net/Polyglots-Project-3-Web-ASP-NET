@@ -5,6 +5,8 @@ using System.Text;
 using AutoMapper;
 using Project3_Site_MVC.Library;
 using Project3_Site_MVC.Library.RepositoriesInterfaces;
+using MySql.Data;
+using MySql.Data.Entity;
 
 namespace Project3_Site_MVC.DataAccess.Repositories
 {
