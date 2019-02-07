@@ -20,8 +20,9 @@ namespace Project3_Site_MVC.Web.Controllers
 
         public IActionResult Index()
         {
-            int orderCount = Repository.GetOrderCount();
-            Home model = new Home(orderCount);
+            //int orderCount = Repository.GetOrderCount();
+            //Home model = new Home(orderCount);
+            Home model = new Home(5);
 
             return View(model);
         }
