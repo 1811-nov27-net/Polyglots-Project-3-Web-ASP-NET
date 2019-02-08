@@ -14,6 +14,7 @@ namespace Project3_Site_MVC.Web
     {
         public static void Main(string[] args)
         {
+
             CreateWebHostBuilder(args).Build().Run();
         }
 

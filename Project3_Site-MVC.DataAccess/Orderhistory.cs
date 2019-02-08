@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using MySql.Data;
-using MySql.Data.Entity;
 
 namespace Project3_Site_MVC.DataAccess
 {
@@ -22,6 +20,7 @@ namespace Project3_Site_MVC.DataAccess
         public decimal OrderTotal { get; set; }
         [Column("date_order")]
         public DateTime DateOrder { get; set; }
+        [Required]
         [Column("products")]
         public string Products { get; set; }
     }
