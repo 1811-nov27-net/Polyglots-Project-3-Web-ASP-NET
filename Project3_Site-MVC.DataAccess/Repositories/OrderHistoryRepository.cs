@@ -7,6 +7,7 @@ using Project3_Site_MVC.Library;
 using Project3_Site_MVC.Library.RepositoriesInterfaces;
 using MySql.Data;
 using MySql.Data.Entity;
+using System.Linq.Expressions;
 
 namespace Project3_Site_MVC.DataAccess.Repositories
 {
@@ -22,11 +23,30 @@ namespace Project3_Site_MVC.DataAccess.Repositories
             db.Database.EnsureCreated();
         }
 
-        public List<OrderHistory> GetAll()
+        public List<OrderHistory> GetAll(string column = "", string order = "")
         {
-            List<Orderhistory> list = _db.Orderhistory
-                                          .OrderBy(m => m.Id)
-                                          .ToList();
+            if (column == "")
+                column = "id";
+            if (order == "")
+                order = "asc";
+
+            column = column.ToLower();
+            order = order.ToLower();
+
+            List<Orderhistory> list;
+
+            if (order == "asc")
+            {
+                list = _db.Orderhistory
+                            .OrderBy(SortTable(column))
+                            .ToList();
+            }
+            else
+            {
+                list = _db.Orderhistory
+                            .OrderByDescending(SortTable(column))
+                            .ToList();
+            }
 
             return Mapper.Map<List<Orderhistory>, List<OrderHistory>>(list);
         }
@@ -44,24 +64,84 @@ namespace Project3_Site_MVC.DataAccess.Repositories
             return GetAll().Count();
         }
 
-        public List<OrderHistory> Search(int id)
+        public List<OrderHistory> Search(int id, string column = "", string order = "")
         {
-            List<Orderhistory> list = _db.Orderhistory
-                                          .OrderBy(m => m.Id)
-                                          .Where(l => l.Id == id || l.OrderNumber == id)
-                                          .ToList();
+            if (column == "")
+                column = "id";
+            if (order == "")
+                order = "asc";
+
+            column = column.ToLower();
+            order = order.ToLower();
+
+            List<Orderhistory> list;
+
+            if (order == "asc")
+            {
+                list = _db.Orderhistory
+                            .Where(l => l.Id == id || l.OrderNumber == id)
+                            .OrderBy(SortTable(column))
+                            .ToList();
+            }
+            else
+            {
+                list = _db.Orderhistory
+                            .Where(l => l.Id == id || l.OrderNumber == id)
+                            .OrderByDescending(SortTable(column))
+                            .ToList();
+            }
 
             return Mapper.Map<List<Orderhistory>, List<OrderHistory>>(list);
         }
 
-        public List<OrderHistory> Search(string store)
+        public List<OrderHistory> Search(string store, string column = "", string order = "")
         {
-            List<Orderhistory> list = _db.Orderhistory
-                                          .OrderBy(m => m.Id)
-                                          .Where(l => l.StoreName.Contains(store))
-                                          .ToList();
+            if (column == "")
+                column = "id";
+            if (order == "")
+                order = "asc";
+
+            column = column.ToLower();
+            order = order.ToLower();
+
+            List<Orderhistory> list;
+
+            if (order == "asc")
+            {
+                list = _db.Orderhistory
+                            .Where(l => l.StoreName.Contains(store))
+                            .OrderBy(SortTable(column))
+                            .ToList();
+            }
+            else
+            {
+                list = _db.Orderhistory
+                            .Where(l => l.StoreName.Contains(store))
+                            .OrderByDescending(SortTable(column))
+                            .ToList();
+            }
 
             return Mapper.Map<List<Orderhistory>, List<OrderHistory>>(list);
         }
+        
+        private Expression<Func<Orderhistory, object>> SortTable(string column)
+        {
+            switch (column)
+            {
+                case "id":
+                    return x => x.Id;
+                case "ordernumber":
+                    return x => x.OrderNumber;
+                case "store_name":
+                    return x => x.StoreName;
+                case "order_total":
+                    return x => x.OrderTotal;
+                case "date_order":
+                    return x => x.DateOrder;
+                default:
+                    return x => x.Id;
+            }
+        }
+
     }
 }

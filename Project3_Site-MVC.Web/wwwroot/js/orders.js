@@ -12,8 +12,13 @@ $('#submitSearchOrdersForm').click(function(evt){
 function searchFunction()
 {
     search = $('#search').val();
+    column = $('#sortColumn').val();
+    order = $('#sortOrder').val();
 
-    url = '/OrderHistory/Search/'+search;
+    console.log(column);
+    console.log(order);
+
+    url = '/OrderHistory/Search/'+column+'/'+order+'/'+search;
 
     $.get(url, function( data ) {
         $('#tableBody').html(data);

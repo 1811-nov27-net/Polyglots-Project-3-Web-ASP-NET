@@ -18,6 +18,30 @@
                     <input type='search' name='search' id='search' placeholder='Search' class='form-control'>
                 </div>
 
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class='form-group'>
+                            <select name="sortColumn" id="sortColumn" class="form-control">
+                                <option value="id">ID</option>
+                                <option value="ordernumber">Order Number</option>
+                                <option value="store_name">Store</option>
+                                <option value="order_total">Order Total</option>
+                                <option value="date_order">Date</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div class='form-group'>
+                            <select name="sortOrder" id="sortOrder" class="form-control">
+                                <option value="asc">Ascending</option>
+                                <option value="desc">Descending</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
                 <div class='text-center'>
                     <div class='form-group'>
                         <button type="submit" class='btn btn-primary' id='submitSearchOrdersForm'>

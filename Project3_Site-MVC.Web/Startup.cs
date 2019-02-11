@@ -76,7 +76,7 @@ namespace Project3_Site_MVC.Web
             {
                 routes.MapRoute(
                     "searchOrder",
-                    "OrderHistory/Search/{search?}",
+                    "OrderHistory/Search/{column?}/{order?}/{search?}",
                     new { controller = "OrderHistory", action = "Search" }
                 );
 

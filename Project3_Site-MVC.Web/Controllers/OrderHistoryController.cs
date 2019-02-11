@@ -106,7 +106,7 @@ namespace Project3_Site_MVC.Web.Controllers
         }
         
         // GET: OrderHistory/Search/5
-        public ActionResult Search(string search)
+        public ActionResult Search(string column, string order, string search)
         {
             List<OrderHistory> list;
 
@@ -116,12 +116,12 @@ namespace Project3_Site_MVC.Web.Controllers
                 bool isNumeric = int.TryParse(search, out id);
 
                 if (isNumeric)
-                    list = Repository.Search(id);
+                    list = Repository.Search(id, column, order);
                 else
-                    list = Repository.Search(search);
+                    list = Repository.Search(search, column, order);
             }
             else
-                list = Repository.GetAll();
+                list = Repository.GetAll(column, order);
 
             return PartialView("_List", list);
         }
