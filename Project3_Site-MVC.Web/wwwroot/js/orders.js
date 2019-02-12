@@ -15,22 +15,46 @@ function searchFunction()
     column = $('#sortColumn').val();
     order = $('#sortOrder').val();
 
-    console.log(column);
-    console.log(order);
-
-    url = '/OrderHistory/Search/'+column+'/'+order+'/'+search;
-
-    $.get(url, function( data ) {
-        $('#tableBody').html(data);
-    });
+    performSearch(column, order, search);
 
     $('#search').focus();
 }
 
-    /*$('#btn_sendInvoices').click(function(evt){ 
-    
+$('.sortColumnTable').click(function () {
+    columnClick = $(this).data('column');
+    column = $('#columnSorted').val();
+    order = $('#orderSorted').val();
+    search = $('#search').val();
 
-    });*/
+    //Invert order
+    if (columnClick == column) {
+        if (order == 'asc') {
+            order = 'desc';
+        }
+        else {
+            order = 'asc';
+        }
+    }
+    //Different Sort
+    else {
+        column = columnClick;
+        order = 'asc';
+    }
+
+    $('#orderSorted').val(order);
+    $('#columnSorted').val(column);
+
+    performSearch(column, order, search);
+});
+
+function performSearch(column, order, search)
+{
+    url = '/OrderHistory/Search/' + column + '/' + order + '/' + search;
+
+    $.get(url, function (data) {
+        $('#tableBody').html(data);
+    });
+}
 
 $('#selectAllInvoices').change(function(e)
 {
