@@ -4,35 +4,127 @@
     Layout = null;
 }
 
-<p>Hello, Here are the selected invoices</p>
-
-<table class="table table-hovered table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Order Number</th>
-            <th>Store Name</th>
-            <th>Order Total</th>
-            <th>Date</th>
-            <th>Products</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.Id)</td>
-                <td>@Html.DisplayFor(modelItem => item.OrderNumber)</td>
-                <td>@Html.DisplayFor(modelItem => item.StoreName)</td>
-                <td>@Html.DisplayFor(modelItem => item.OrderTotal)</td>
-                <td>@Html.DisplayFor(modelItem => item.DateOrder)</td>
-                <td>@item.Products.Replace("<br/>", ", ")</td>
-            </tr>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Raleway', sans-serif;
         }
-    </tbody>
-</table>
 
-<p>
-    Thank you<br />
-    Revature - Project 3 - Polyglots
-</p>
+        .text-center {
+            text-align: center;
+        }
+
+        header {
+            padding: 40px;
+            text-transform: uppercase;
+            background-color: #F26925;
+            color:#fff;
+        }
+
+        div.content {
+            padding: 0px 20px;
+        }
+
+        .table-bordered {
+            border: 1px solid #ddd;
+        }
+
+        .table {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 22px;
+        }
+
+        table {
+            background-color: transparent;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        .table > caption + thead > tr:first-child > th, .table > caption + thead > tr:first-child > td, .table > colgroup + thead > tr:first-child > th, .table > colgroup + thead > tr:first-child > td, .table > thead:first-child > tr:first-child > th, .table > thead:first-child > tr:first-child > td {
+            border-top: 0;
+        }
+
+        .table-bordered > thead > tr > th, .table-bordered > thead > tr > td {
+            border-bottom-width: 2px;
+        }
+
+        .table-bordered > thead > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > tfoot > tr > td {
+            border: 1px solid #ddd;
+            border-top-color: rgb(221, 221, 221);
+            border-top-style: solid;
+            border-top-width: 1px;
+            border-bottom-width: 1px;
+        }
+
+        .table > thead > tr > th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td {
+            padding: 8px;
+            line-height: 1.6;
+            vertical-align: top;
+            border-top: 1px solid #ddd;
+        }
+
+        th {
+            text-align: center;
+        }
+
+        .table-striped > tbody > tr:nth-of-type(2n+1) {
+            background-color: #f9f9f9;
+        }
+
+        .table-hover > tbody > tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <header class="text-center">
+        <h1>Revature - Project 3 - Order Process Automation</h1>
+    </header>
+
+    <div class="content">
+        <p>Hello, Here are the selected invoices</p>
+
+        <table class="table table-hovered table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th width="130px">Order Number</th>
+                    <th>Store Name</th>
+                    <th width="130px">Order Total</th>
+                    <th>Date</th>
+                    <th>Products</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                        <td>@Html.DisplayFor(modelItem => item.OrderNumber)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StoreName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.OrderTotal)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DateOrder)</td>
+                        <td>@item.Products.Replace("<br/>", ", ")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <p>
+            Thank you<br />
+            Revature - Project 3 - Polyglots
+        </p>
+    </div>
+</body>
