@@ -76,6 +76,8 @@ $('#emailModal').on('shown.bs.modal', function () {
 });
 
 $('#modalButonSendMail').click(function () {
+    $('#messageEmailSending').show();
+
     dataPost = {
         invoices: $('#invoicedInput').val()
     };
@@ -97,13 +99,15 @@ $('#modalButonSendMail').click(function () {
         }
         finally
         {
-            $('.orderItem').prop('checked', false);
-            $('#email').val('');
             $('#emailModal').modal('hide');
             setTimeout(function () {
                 $('.alert-dismissable').fadeOut('slow');
             }, 3000);
+            $('#messageEmailSending').hide();
+            $('.orderItem').prop('checked', false);
+            $('#email').val('');
         }
     });
 });
 
+$('#messageEmailSending').hide();

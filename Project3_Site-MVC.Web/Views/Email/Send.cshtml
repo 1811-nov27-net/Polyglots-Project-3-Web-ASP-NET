@@ -114,7 +114,7 @@
                         <td>@Html.DisplayFor(modelItem => item.Id)</td>
                         <td>@Html.DisplayFor(modelItem => item.OrderNumber)</td>
                         <td>@Html.DisplayFor(modelItem => item.StoreName)</td>
-                        <td>@Html.DisplayFor(modelItem => item.OrderTotal)</td>
+                        <td>$ @Html.DisplayFor(modelItem => item.OrderTotal)</td>
                         <td>@Html.DisplayFor(modelItem => item.DateOrder)</td>
                         <td>@item.Products.Replace("<br/>", ", ")</td>
                     </tr>
